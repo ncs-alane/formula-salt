@@ -1,0 +1,12 @@
+salt:
+  repo: |
+    [saltstack-amzn-repo]
+    name=SaltStack repo for Amazon Linux
+    baseurl=https://repo.saltstack.com/yum/redhat/6/$basearch/2015.8
+    enabled=1
+    gpgcheck=1
+    gpgkey=https://repo.saltstack.com/yum/redhat/6/$basearch/2015.8/SALTSTACK-GPG-KEY.pub
+  minion:
+    config:
+  master:
+    config:

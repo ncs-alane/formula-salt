@@ -1,0 +1,52 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: <%= ENV['USER'] %>
+  instance_type: m3.medium
+
+provisioner:
+  name: salt_solo
+  salt_bootstrap_url: 'https://raw.githubusercontent.com/mulesoft-ops/salt-bootstrap/develop/bootstrap-salt.sh'
+  formula: salt
+  pillars-from-files:
+    salt.sls: test/fixtures/pillar.yml
+  pillars:
+    top.sls:
+      base:
+        '*':
+          - salt
+
+transport:
+  ssh_key: ~/.ssh/id_rsa
+
+verifier:
+  name: inspec
+  format: doc
+
+platforms:
+  - name: amazon-linux-2016.03.0
+    driver:
+      image_id: ami-bf0010d5
+    transport:
+      username: ec2-user
+  - name: ubuntu-16.04
+    driver:
+      image_id: ami-8da346e0
+    transport:
+      username: ubuntu
+
+suites:
+  - name: minion
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - salt
+  - name: master
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - salt
+            - salt.master
+            - salt.api
