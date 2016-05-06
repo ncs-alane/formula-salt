@@ -1,0 +1,7 @@
+name: salt
+os: Amazon
+os_family: RedHat
+version: 201605
+release: 1
+summary: Formula for installing Saltstack
+description: Formula for installing Saltstack
