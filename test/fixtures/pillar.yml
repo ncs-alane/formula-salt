@@ -1,5 +1,4 @@
 salt:
-  version: 2015.8.8-2.el6
   minion:
     config:
       master: localhost

@@ -6,8 +6,6 @@ include:
 salt_master_package:
   pkg.installed:
     - name: salt-master
-    - version: {{ salt.version }}
-    - fromrepo: saltstack-amzn-repo
 
 salt_master_config:
   file.managed:

@@ -6,8 +6,6 @@ include:
 salt_minion_package:
   pkg.installed:
     - name: salt-minion
-    - version: {{ salt.version }}
-    - fromrepo: saltstack-amzn-repo
 
 salt_minion_config:
   file.managed:

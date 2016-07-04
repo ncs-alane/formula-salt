@@ -6,8 +6,6 @@ include:
 salt_api_package:
   pkg.installed:
     - name: salt-api
-    - version: {{ salt.version }}
-    - fromrepo: saltstack-amzn-repo
 
 salt_api_service:
   service.running:
