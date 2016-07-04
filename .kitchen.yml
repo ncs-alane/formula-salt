@@ -6,7 +6,6 @@ driver:
 
 provisioner:
   name: salt_solo
-  salt_bootstrap_url: 'https://raw.githubusercontent.com/mulesoft-ops/salt-bootstrap/develop/bootstrap-salt.sh'
   formula: salt
   pillars-from-files:
     salt.sls: test/fixtures/pillar.yml
@@ -24,14 +23,14 @@ verifier:
   format: doc
 
 platforms:
-  - name: amazon-linux-2016.03.0
+  - name: amazon
     driver:
-      image_id: ami-bf0010d5
+      image_id: ami-f3559b9e
     transport:
       username: ec2-user
-  - name: ubuntu-16.04
+  - name: ubuntu
     driver:
-      image_id: ami-8da346e0
+      image_id: ami-c45a94a9
     transport:
       username: ubuntu
 
